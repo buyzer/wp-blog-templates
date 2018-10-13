@@ -1,13 +1,13 @@
 <?php
 
-function wpbtpl_init(){
+function wpbtpls_init(){
 
 }
-add_action('plugins_loaded', 'wpbtpl_init');
+add_action('plugins_loaded', 'wpbtpls_init');
 
-function wpbtpl_install(){
+function wpbtpls_install(){
 	//trigger functions that register custom post type
-	wpbtpl_register_post_type();
+	wpbtpls_register_post_type();
 
 	//clear the permalinks after the post type has been registered
 	flush_rewrite_rules();
