@@ -1,0 +1,44 @@
+/*Tabs Components*/
+.wpbtpls-tabs {
+  display: none;
+}
+
+.wpbtpls-tabs.ui-tabs {
+  display: block;
+}
+
+.wpbtpls-tabs .ui-tabs-nav {
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.wpbtpls-tabs .ui-tabs-nav li {
+  display: inline-block;
+  margin: 0;
+}
+
+.wpbtpls-tabs .ui-tabs-nav li.ui-tabs-active {
+  background: #0073aa;
+}
+
+.wpbtpls-tabs .ui-tabs-nav li.ui-tabs-active a {
+  box-shadow: none;
+  color: #fff;
+}
+
+.wpbtpls-tabs .ui-tabs-nav li a {
+  color: #333;
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.wpbtpls-tabs .ui-tabs-nav li a:hover {
+  background: #0073aa;
+  color: #fff;
+}
+
+.wpbtpls-tabs .ui-tabs-panel {
+  background: #fff;
+  padding: 10px;
+}

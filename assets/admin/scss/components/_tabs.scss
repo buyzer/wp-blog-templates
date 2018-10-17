@@ -1,0 +1,36 @@
+/*Tabs Components*/
+.wpbtpls-tabs{
+	display: none;
+	&.ui-tabs{
+		display: block;
+	}
+	.ui-tabs-nav{
+		background: #fff;
+		margin-bottom: 10px;
+		li{
+			display: inline-block;
+			margin: 0;
+			&.ui-tabs-active{
+				background: #0073aa;
+				a{
+					box-shadow: none;
+					color: #fff;		
+				}
+			}
+			a{
+				color: #333;
+				display: block;
+				padding: 10px 15px;
+				text-decoration: none;
+				&:hover{
+					background: #0073aa;
+					color: #fff;
+				}
+			}
+		}
+	}
+	.ui-tabs-panel{
+		background: #fff;
+		padding: 10px;
+	}
+}

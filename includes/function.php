@@ -12,3 +12,9 @@ function wpbtpls_install(){
 	//clear the permalinks after the post type has been registered
 	flush_rewrite_rules();
 }	
+
+//get template
+function wpbtpls_get_view($file, $data = []){
+	extract($data);
+	include_once( WPBTPLS_PLUGIN_DIRECTORY.'views/' . $file );
+}
