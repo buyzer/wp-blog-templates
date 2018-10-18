@@ -2,7 +2,7 @@
 /*
 Plugin Name:  WP Blog Templates
 Plugin URI:   
-Description:  Easily build beautiful layout for News / Blog / Post Archives page.
+Description:  Easily build beautiful layout for News / Blog / Post.
 Version:      0.0.1
 Author:       Buyung Abadi
 Author URI:   https://profiles.wordpress.org/buyzer

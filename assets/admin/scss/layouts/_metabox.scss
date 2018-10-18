@@ -1,0 +1,21 @@
+/* Metabox Blog Template */
+.wpbtpls-box-layout{
+	.wpbtpls-item-layout{
+		display: inline-block;
+		position: relative;
+		width: 30%;
+		margin: 1%;
+		> input{
+			position: absolute;
+		}
+		label{
+			img{
+				height: auto;
+				width: 100%;
+			}
+		}
+		.title{
+			background: #f1f1f1;
+		}
+	}
+}

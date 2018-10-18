@@ -15,7 +15,7 @@ var distPath = {
 	js : distBasePath + '/js',
 	css : distBasePath + '/css',
 	font : distBasePath + '/fonts',
-	img : distBasePath + '/img',
+	img : distBasePath + '/images',
 	vendor : distBasePath + '/vendor'
 };
 var adminAssetsPath = './assets/admin';
@@ -24,7 +24,7 @@ var adminDistPath = {
 	js : adminDistBasePath + '/js',
 	css : adminDistBasePath + '/css',
 	font : adminDistBasePath + '/fonts',
-	img : adminDistBasePath + '/img'
+	img : adminDistBasePath + '/images'
 };
 
 var jsFiles = [
