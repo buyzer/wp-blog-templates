@@ -23,91 +23,132 @@ $post_tags = get_terms( 'post_tag', array(
 						</div>
 					</div>
 					<div id="wpbtpls-tabs" class="wpbtpls-tabs">
-					<ul>
-					<li><a href="#tabs-1"><?php _e( 'Build Query', 'wpbtpls' ); ?></a></li>
-					<li><a href="#tabs-2"><?php _e( 'Build Template', 'wpbtpls' ); ?></a></li>
-					<li><a href="#tabs-3"><?php _e( 'Advanced', 'wpbtpls' ); ?></a></li>
-					</ul>
-					<div id="tabs-1">
-						<table class="form-table">
-							<tr>
-								<th><?php _e( 'Specific Post Category', 'wpbtpls' ); ?></th>
-								<td>
-									<select name="category">
-										<option value="0"><?php _e( 'None', 'wpbtpls' ); ?></option>
-										<?php
-										foreach ( $categories as $category ) {
-											echo '<option value="'. $category->term_id .'">'. $category->name .'</option>';	
-										}
-										?>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<th><?php _e( 'Specific Post Tag', 'wpbtpls' ); ?></th>
-								<td>
-									<select name="post_tag">
-										<option value="0"><?php _e( 'None', 'wpbtpls' ); ?></option>
-										<?php
-										foreach ( $post_tags as $tag ) {
-											echo '<option value="'. $tag->term_id .'">'. $tag->name .'</option>';	
-										}
-										?>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<th><?php _e( 'Posts per Page', 'wpbtpls' ); ?></th>
-								<td>
-									<input type="number" name="posts_per_page" value="<?php echo get_option( 'posts_per_page' ); ?>" class="small-text">
-								</td>
-							</tr>
-							<tr>
-								<th><?php _e( 'Navigation', 'wpbtpls' ); ?></th>
-								<td>
-									<select name="navigation">
-										<option value="none"><?php _e( 'None', 'wpbtpls' ); ?></option>
-										<option value="pagination"><?php _e( 'Pagination', 'wpbtpls' ); ?></option>
-										<option value="loadmore"><?php _e( 'Load More', 'wpbtpls' ); ?></option>
-									</select>
-								</td>
-							</tr>
-							<tr class="items-on-load" style="display: none;">
-								<th><?php _e( 'Items on Load', 'wpbtpls' ); ?></th>
-								<td>
-									<input type="number" name="items_on_load" value="<?php echo get_option( 'posts_per_page' ); ?>" class="small-text">
-								</td>
-							</tr>
-						</table>
-					</div>
-					<div id="tabs-2">
-						<table class="form-table wpbtpls-box-layout">
-							<tr>
-								<th><?php _e( 'Layout', 'wpbtpls' ); ?></th>
-								<td>
-								<?php
-									foreach ( WPBTPLS_Layout::layouts() as $layoutkey => $layout ) {
-									?>
-										<div class="wpbtpls-item-layout">
-											<input type="radio" name="layout" value="<?php echo $layoutkey; ?>" id="wpbtpls-layout-<?php echo $layoutkey; ?>">
-											<label for="wpbtpls-layout-<?php echo $layoutkey; ?>">
-												<img src="<?php echo $layout['thumbnail']; ?>" >
-											</label>
-											<div class="title">
-												<h4><?php echo $layout['title']; ?></h4>
-											</div>
-										</div>
+						<ul>
+							<li><a href="#tabs-1"><?php _e( 'Build Query', 'wpbtpls' ); ?></a></li>
+							<li><a href="#tabs-2"><?php _e( 'Build Template', 'wpbtpls' ); ?></a></li>
+							<li><a href="#tabs-3"><?php _e( 'Advanced', 'wpbtpls' ); ?></a></li>
+						</ul>
+						<div id="tabs-1">
+							<table class="form-table">
+								<tr>
+									<th><?php _e( 'Specific Post Category', 'wpbtpls' ); ?></th>
+									<td>
+										<select name="category">
+											<option value="0"><?php _e( 'None', 'wpbtpls' ); ?></option>
+											<?php
+											foreach ( $categories as $category ) {
+												echo '<option value="'. $category->term_id .'">'. $category->name .'</option>';	
+											}
+											?>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Specific Post Tag', 'wpbtpls' ); ?></th>
+									<td>
+										<select name="post_tag">
+											<option value="0"><?php _e( 'None', 'wpbtpls' ); ?></option>
+											<?php
+											foreach ( $post_tags as $tag ) {
+												echo '<option value="'. $tag->term_id .'">'. $tag->name .'</option>';	
+											}
+											?>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Posts per Page', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="number" name="posts_per_page" value="<?php echo get_option( 'posts_per_page' ); ?>" class="small-text">
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Order By', 'wpbtpls' ); ?></th>
+									<td>
+										<select name="order_by">
+											<option value="date"><?php _e( 'Date', 'wpbtpls' ); ?></option>
+											<option value="title"><?php _e( 'Title', 'wpbtpls' ); ?></option>
+											<option value="random"><?php _e( 'Random', 'wpbtpls' ); ?></option>
+											<option value="random"><?php _e( 'Menu Order', 'wpbtpls' ); ?></option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Sort Order', 'wpbtpls' ); ?></th>
+									<td>
+										<select name="sort_order">
+											<option value="desc"><?php _e( 'Descending', 'wpbtpls' ); ?></option>
+											<option value="asc"><?php _e( 'Ascending', 'wpbtpls' ); ?></option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Navigation', 'wpbtpls' ); ?></th>
+									<td>
+										<select name="navigation">
+											<option value="none"><?php _e( 'None', 'wpbtpls' ); ?></option>
+											<option value="pagination"><?php _e( 'Pagination', 'wpbtpls' ); ?></option>
+											<option value="loadmore"><?php _e( 'Load More', 'wpbtpls' ); ?></option>
+										</select>
+									</td>
+								</tr>
+								<tr class="items-on-load" style="display: none;">
+									<th><?php _e( 'Items on Load', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="number" name="items_on_load" value="<?php echo get_option( 'posts_per_page' ); ?>" class="small-text">
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div id="tabs-2">
+							<table class="form-table wpbtpls-box-layout">
+								<tr>
+									<th><?php _e( 'Layout', 'wpbtpls' ); ?></th>
+									<td>
 									<?php
-									}
-								?>
-								</td>
-							</tr>
-						</table>
-					</div>
-					<div id="tabs-3">
-					<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-					<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
-					</div>
+										foreach ( WPBTPLS_Layout::layouts() as $layoutkey => $layout ) {
+										?>
+											<div class="wpbtpls-item-layout">
+												<input type="radio" name="layout" value="<?php echo $layoutkey; ?>" id="wpbtpls-layout-<?php echo $layoutkey; ?>" <?php echo ( $layoutkey == 'standart1' ? 'checked' : '' ); ?> >
+												<label for="wpbtpls-layout-<?php echo $layoutkey; ?>" title="<?php echo $layout['title']; ?>">
+													<img src="<?php echo $layout['thumbnail']; ?>" >
+												</label>
+											</div>
+										<?php
+										}
+									?>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div id="tabs-3">
+							<table class="form-table">
+								<tr>
+									<th><?php _e( 'Wrapper Class', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="text" name="wrapper_class">
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Wrapper ID', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="text" name="wrapper_id">
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Item Class', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="text" name="item_class">
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Item ID', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="text" name="item_id">
+									</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
 				<div id="postbox-container-1" class="postbox-container">
