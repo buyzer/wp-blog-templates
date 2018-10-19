@@ -1,25 +1,22 @@
 <?php
-
-$categories = get_terms( 'category', array(
-	'hide_empty' => false,
-) );
-
-$post_tags = get_terms( 'post_tag', array(
-	'hide_empty' => false,
-) );
-
+/**
+* Variables list
+* @var $categories
+* @var $post_tags
+*/
 ?>
 <div class="wrap">
 	<h1 class="wp-heading-inline"><?php _e( 'Add New Blog Template', 'wpbtpls' );?></h1>
 	<hr class="wp-header-end">
-	<form method="POST" action="<?php echo admin_url( 'admin.php?page=wpbtpls-new' );?>" id="wpbtpls-form">
-		<?php wp_nonce_field( 'wpbtpls-new-post' );?>
+	<form method="POST" action="<?php echo admin_url( 'admin-post.php' );?>" id="wpbtpls-form">
+		<?php wp_nonce_field( 'wpbtpls-add-template' );?>
+		<input type="hidden" name="action" value="add_template">
 		<div id="poststuff">
 			<div id="post-body" class="metabox-holder columns-2">
 				<div id="post-body-content">
 					<div id="titlediv">
 						<div id="titlewrap">
-								<input type="text" name="title" size="30" placeholder="<?php _e( 'Enter template title', 'wpbtpls' );?>" id="title" autocomplete="off">
+								<input type="text" name="title" size="30" placeholder="<?php _e( 'Enter template title', 'wpbtpls' );?>" id="title" autocomplete="off" required>
 						</div>
 					</div>
 					<div id="wpbtpls-tabs" class="wpbtpls-tabs">
@@ -61,8 +58,8 @@ $post_tags = get_terms( 'post_tag', array(
 									<td>
 										<input type="number" name="posts_per_page" value="<?php echo get_option( 'posts_per_page' ); ?>" class="small-text">
 									</td>
-								</tr>
-								<tr>
+								</tr
+>								<tr>
 									<th><?php _e( 'Order By', 'wpbtpls' ); ?></th>
 									<td>
 										<select name="order_by">
@@ -161,7 +158,7 @@ $post_tags = get_terms( 'post_tag', array(
 								</div>
 								<div id="publishing-action">
 									<span class="spinner"></span>
-									<input name="save" type="submit" class="button button-primary button-large" id="publish" value="Save">
+									<input name="save" type="submit" class="button button-primary button-large" id="wpbtpls-save" value="Save">
 								</div>
 								<div class="clear"></div>
 							</div>

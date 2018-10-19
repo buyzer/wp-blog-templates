@@ -13,8 +13,14 @@
 				$('#wpbtpls-form .items-on-load').hide();
 			}
 		});
-		$('#wpbtpls-form select[name="navigation"]').trigger('change')
 
+		$('#wpbtpls-form select[name="navigation"]').trigger('change')
+		
+		$('#wpbtpls-form').on('submit', function(e){
+			$('wpbtpls-save').addClass('disabled');
+			$('#publishing-action .spinner').addClass('is-active');
+		});
+		
 	});
 
 } )( jQuery);  
