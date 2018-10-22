@@ -17,7 +17,7 @@
 		$('#wpbtpls-form select[name="navigation"]').trigger('change')
 		
 		$('#wpbtpls-form').on('submit', function(e){
-			$('wpbtpls-save').addClass('disabled');
+			$('wpbtpls-submit').addClass('disabled');
 			$('#publishing-action .spinner').addClass('is-active');
 		});
 		
