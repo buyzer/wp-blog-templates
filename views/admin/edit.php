@@ -7,7 +7,7 @@
 * @var $blog_template_attrs
 */
 $default_attrs = WPBTPLS_Layout::default_attrs();
-$attr = array_merge($default_attrs, $blog_template_attrs);
+$attr = array_merge($default_attrs, (array)$blog_template_attrs);
 ?>
 <div class="wrap">
 	<?php do_action('wpbtpls_messages'); ?>
@@ -164,7 +164,7 @@ $attr = array_merge($default_attrs, $blog_template_attrs);
 						<div class="submitbox">
 							<div id="major-publishing-actions">
 								<div id="delete-action">
-									<a href="#" class="submitdelete wpbtpls-delete" data-loading="<?php _e( 'Loading...', 'wpbtpls' );?>"><?php _e( 'Delete', 'wpbtpls' );?></a>
+									<a href="<?php echo wp_nonce_url( 'admin.php?page=wpbtpls&post='. $blog_template->ID .'&action=delete_template', 'wpbtpls-delete-template' );?>" class="submitdelete" onclick="return confirm('<?php _e( 'This action will deleting Item permanently.', 'wpbtpls' ); ?>');" ><?php _e( 'Delete', 'wpbtpls' );?></a>
 								</div>
 								<div id="publishing-action">
 									<span class="spinner"></span>

@@ -1,5 +1,5 @@
 <?php
-// Action add template
+// Add template
 function wpbtpls_add_template(){
 	// Check nonce
 	if ( !wp_verify_nonce( $_POST['_wpnonce'], 'wpbtpls-add-template' ) ) {
@@ -61,7 +61,7 @@ function wpbtpls_add_template(){
 	exit();
 }
 
-// Action edit template
+// Edit template
 function wpbtpls_edit_template(){
 	// Check nonce
 	$post_id = (int)sanitize_text_field( $_POST['post_id'] );
@@ -123,6 +123,30 @@ function wpbtpls_edit_template(){
 	exit();
 }
 
+// Delete Template
+function wpbtpls_delete_template(){
+	// Check nonce
+	if ( !wp_verify_nonce( $_GET['_wpnonce'], 'wpbtpls-delete-template' ) ) {
+		return false;
+	}
+
+	// Check user capability
+	if ( !current_user_can('wpbtpls_delete_blog_template') ) {
+		return false;
+	}
+
+	$post_id = (int)sanitize_text_field( $_GET['post'] );
+	wp_delete_post( $post_id, true );
+
+	$redirect_url = add_query_arg( array(
+		'page' => 'wpbtpls',
+		'message' => 'delete'
+	), admin_url( 'admin.php' ) );
+
+	wp_redirect( $redirect_url );
+	exit();
+}
+
 function wpbtpls_action_init(){
 	if ( !isset($_REQUEST['action']) ) {
 		return false;
@@ -135,6 +159,10 @@ function wpbtpls_action_init(){
 	if ( wpbtpls_action_is( 'edit_template' ) ){
 		wpbtpls_edit_template();
 	}
+
+	if ( wpbtpls_action_is( 'delete_template' ) ){
+		wpbtpls_delete_template();
+	}
 }
 add_action( 'init', 'wpbtpls_action_init' );
 
@@ -145,13 +173,13 @@ function wpbtpls_action_messages(){
 	}
 	$msg = '';
 	if ( $_REQUEST['message'] == 'saved' ){
-		$msg = '<div id="message" class="updated notice notice-success is-dismissible">';
+		$msg = '<div id="message" class="notice notice-success is-dismissible">';
 		$msg .= '<p>'. __( 'Blog Template saved.', 'wpbtpls' ) .'</p>';
 		$msg .= '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.__( 'Dismiss this notice.', 'wpbtpls' ).'</span></button>';
 		$msg .= '</div>';
 	}
 	if ( $_REQUEST['message'] == 'updated' ){
-		$msg = '<div id="message" class="updated notice notice-success is-dismissible">';
+		$msg = '<div id="message" class="notice notice-success is-dismissible">';
 		$msg .= '<p>'. __( 'Blog Template updated.', 'wpbtpls' ) .'</p>';
 		$msg .= '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.__( 'Dismiss this notice.', 'wpbtpls' ).'</span></button>';
 		$msg .= '</div>';

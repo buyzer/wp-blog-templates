@@ -25,7 +25,7 @@ function wpbtpls_dashboard_view(){
 	$post_id = isset($_GET['post']) ? (int)sanitize_text_field( $_GET['post'] ) : 0;
 	$post = get_post( $post_id );
 	// Validate action if edit & post id is valid
-	if ( wpbtpls_action_is( 'edit' ) && $post->post_type == 'wpbtpls_template' ) {
+	if ( wpbtpls_action_is( 'edit' ) && $post != null && $post->post_type == 'wpbtpls_template' ) {
 		$data['categories'] = get_terms( 'category', array(
 		'hide_empty' => false
 		) );
