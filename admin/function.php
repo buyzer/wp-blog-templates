@@ -36,7 +36,8 @@ function wpbtpls_dashboard_view(){
 		$data['blog_template_attrs'] = get_post_meta( $post_id, '_wpbtpls_attrs', true );
 		wpbtpls_get_view( 'admin/edit.php', $data );
 	} else {
-		wpbtpls_get_view( 'admin/dashboard.php' );
+		$data['table_list'] = new WPBTPLS_Blog_Templates_Table();
+		wpbtpls_get_view( 'admin/dashboard.php', $data );
 	}
 }
 
