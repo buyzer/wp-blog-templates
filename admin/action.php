@@ -61,11 +61,11 @@ function wpbtpls_add_template(){
 	exit();
 }
 
-// Edit template
-function wpbtpls_edit_template(){
+// Update template
+function wpbtpls_update_template(){
 	// Check nonce
 	$post_id = (int)sanitize_text_field( $_POST['post_id'] );
-	if ( !wp_verify_nonce( $_POST['_wpnonce'], 'wpbtpls-edit-template-'. $post_id ) ) {
+	if ( !wp_verify_nonce( $_POST['_wpnonce'], 'wpbtpls-update-template-'. $post_id ) ) {
 		return false;
 	}
 
@@ -140,11 +140,38 @@ function wpbtpls_delete_template(){
 
 	$redirect_url = add_query_arg( array(
 		'page' => 'wpbtpls',
-		'message' => 'delete'
+		'message' => 'deleted'
 	), admin_url( 'admin.php' ) );
 
 	wp_redirect( $redirect_url );
 	exit();
+}
+
+// Bulk Delete Template
+function wpbtpls_bulk_delete_template(){
+	// Check nonce
+	if ( !wp_verify_nonce( $_GET['_wpnonce'], 'bulk-posts' ) ) {
+		return false;
+	}
+
+	// Check user capability
+	if ( !current_user_can('wpbtpls_delete_blog_template') ) {
+		return false;
+	}
+
+	if( $_GET['post_checkbox'] != null ){
+		foreach ( $_GET['post_checkbox'] as $post_id ) {
+			wp_delete_post( $post_id, true );
+		}
+
+		$redirect_url = add_query_arg( array(
+			'page' => 'wpbtpls',
+			'message' => 'deleted'
+		), admin_url( 'admin.php' ) );
+
+		wp_redirect( $redirect_url );
+		exit();
+	}
 }
 
 function wpbtpls_action_init(){
@@ -156,12 +183,16 @@ function wpbtpls_action_init(){
 		wpbtpls_add_template();
 	}
 
-	if ( wpbtpls_action_is( 'edit_template' ) ){
-		wpbtpls_edit_template();
+	if ( wpbtpls_action_is( 'update_template' ) ){
+		wpbtpls_update_template();
 	}
 
 	if ( wpbtpls_action_is( 'delete_template' ) ){
 		wpbtpls_delete_template();
+	}
+
+	if ( wpbtpls_action_is( 'bulk_delete_template' ) ){
+		wpbtpls_bulk_delete_template();
 	}
 }
 add_action( 'init', 'wpbtpls_action_init' );
@@ -181,6 +212,12 @@ function wpbtpls_action_messages(){
 	if ( $_REQUEST['message'] == 'updated' ){
 		$msg = '<div id="message" class="notice notice-success is-dismissible">';
 		$msg .= '<p>'. __( 'Blog Template updated.', 'wpbtpls' ) .'</p>';
+		$msg .= '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.__( 'Dismiss this notice.', 'wpbtpls' ).'</span></button>';
+		$msg .= '</div>';
+	}
+	if ( $_REQUEST['message'] == 'deleted' ){
+		$msg = '<div id="message" class="notice notice-success is-dismissible">';
+		$msg .= '<p>'. __( 'Blog Template deleted.', 'wpbtpls' ) .'</p>';
 		$msg .= '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.__( 'Dismiss this notice.', 'wpbtpls' ).'</span></button>';
 		$msg .= '</div>';
 	}

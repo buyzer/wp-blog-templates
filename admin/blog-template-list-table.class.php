@@ -30,18 +30,13 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 		$search = isset( $_REQUEST['s'] ) ? wp_unslash( trim( $_REQUEST['s'] ) ) : '';
 		$per_page = 10;
 		$paged = $this->get_pagenum();
-
 		$args = array(
-			'number' => $per_page,
+			'posts_per_page' => $per_page,
 			'offset' => ( $paged-1 ) * $per_page,
-			'search' => $search,
-			'posts_per_page' => -1,
+			's' => $search,
 			'post_status' => 'any',
 			'post_type' => self::post_type
 		);
-
-		if ( '' !== $args['search'] )
-			$args['search'] = '*' . $args['search'] . '*';
 
 		if ( isset( $_REQUEST['orderby'] ) )
 			$args['orderby'] = $_REQUEST['orderby'];
@@ -56,8 +51,12 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 		}
 		$this->items = $items;
 
+		$total_items = $template_query->found_posts;
+		$total_pages = ceil( $total_items / $per_page );
+
 		$this->set_pagination_args( array(
-			'total_items' => $template_query->post_count,
+			'total_items' => $total_items,
+			'total_pages' => $total_pages,
 			'per_page' => $per_page,
 		) );
 	}
@@ -65,7 +64,7 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 	public function get_bulk_actions()
 	{
 		$actions = array(
-			'delete' => __( 'Delete', 'wpbtpls' )
+			'bulk_delete_template' => __( 'Delete', 'wpbtpls' )
 		);
 		return $actions;
 	}
@@ -91,29 +90,55 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 	}
 
 	public function column_default( $item, $column_name ) {
-		return 'aa';
+		return '';
 	}
 
 	public function column_cb( $item )
 	{
-		return sprintf( '<input type="checkbox" name="%1_checkbox$s" value="%2$s" />', $this->_args['singular'], $item->ID );
+		return sprintf( '<input type="checkbox" name="%s_checkbox[]" value="%s" />', $this->_args['singular'], $item->ID );
 	}
 
 	public function column_title( $item )
 	{
-		$return = '';
-		$return .= '';
-		return 'aab';
+		$delete_nonce = wp_create_nonce( 'wpbtpls-delete-template' );
+		$url = admin_url( 'admin.php?page=wpbtpls&post=' . absint( $item->ID ) );
+		$edit_link = add_query_arg( array( 'action' => 'edit' ), $url );
+		$delete_link = add_query_arg( array( 'action' => 'delete_template', '_wpnonce' => $delete_nonce  ), $url );
+
+		$output = sprintf(
+			'<strong><a href="%s" title="%s" class="row-title">%s</a></strong>',
+			esc_url( $edit_link ),
+			esc_attr( sprintf( __( 'Edit', 'wpbtpls' ),
+				$item->post_title ) ),
+			esc_html( $item->post_title )
+		);
+
+		$actions = [
+			'edit' => sprintf( '<a href="%s">%s</a>',
+				$edit_link,
+				__( 'Edit', 'wpbtpls' )
+			),
+			'delete' => sprintf( '<a href="%s" onclick="return confirm(\'%s\')">%s</a>',
+				$delete_link,
+				__( 'This action will deleting Item permanently.', 'wpbtpls' ),
+				__( 'Delete', 'wpbtpls' )
+			)
+		];
+
+		$output .= $this->row_actions( $actions );
+		return $output;
 	}
 
 	public function column_shortcode( $item )
 	{
-		return 'aav';
+		$output = '<code>[wpbtpls id="'.$item->ID.'"]</code>';
+		return $output;
 	}
 
 	public function column_author( $item )
 	{
-		return 'aav';
+		$author = get_userdata( $item->post_author );
+		return $author != null ? esc_html( $author->display_name ) : '-';
 	}
 
 }

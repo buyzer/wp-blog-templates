@@ -15,9 +15,9 @@ $attr = array_merge($default_attrs, (array)$blog_template_attrs);
 	<a href="<?php echo admin_url( 'admin-post.php?page=wpbtpls-new' );?>" class="page-title-action"><?php _e( 'Add New', 'wpbtpls' ); ?></a>
 	<hr class="wp-header-end">
 	<form method="POST" action="<?php echo admin_url( 'admin.php?page=wpbtpls' );?>" id="wpbtpls-form">
-		<?php wp_nonce_field( 'wpbtpls-edit-template-'.$blog_template->ID );?>
+		<?php wp_nonce_field( 'wpbtpls-update-template-'.$blog_template->ID );?>
 		<input type="hidden" name="post_id" value="<?php echo $blog_template->ID; ?>">
-		<input type="hidden" name="action" value="edit_template">
+		<input type="hidden" name="action" value="update_template">
 		<div id="poststuff">
 			<div id="post-body" class="metabox-holder columns-2">
 				<div id="post-body-content">
