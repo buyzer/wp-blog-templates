@@ -28,11 +28,11 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 		$this->_column_headers = array($columns, $hidden, $sortable);
 
 		$search = isset( $_REQUEST['s'] ) ? wp_unslash( trim( $_REQUEST['s'] ) ) : '';
-		$per_page = 10;
+		$per_page = 1;
 		$paged = $this->get_pagenum();
 		$args = array(
 			'posts_per_page' => $per_page,
-			'offset' => ( $paged-1 ) * $per_page,
+			'paged' => $paged,
 			's' => $search,
 			'post_status' => 'any',
 			'post_type' => self::post_type
@@ -108,8 +108,7 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 		$output = sprintf(
 			'<strong><a href="%s" title="%s" class="row-title">%s</a></strong>',
 			esc_url( $edit_link ),
-			esc_attr( sprintf( __( 'Edit', 'wpbtpls' ),
-				$item->post_title ) ),
+			esc_attr( __( 'Edit', 'wpbtpls' ) ),
 			esc_html( $item->post_title )
 		);
 

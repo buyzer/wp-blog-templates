@@ -20,11 +20,11 @@ function wpbtpls_admin_menus(){
 }
 add_action( 'admin_menu', 'wpbtpls_admin_menus' );
 
-// Render default view
+// Render dashboard view
 function wpbtpls_dashboard_view(){
 	$post_id = isset($_GET['post']) ? (int)sanitize_text_field( $_GET['post'] ) : 0;
 	$post = get_post( $post_id );
-	// Validate action if edit & post id is valid
+	// Render edit template view
 	if ( wpbtpls_action_is( 'edit' ) && $post != null && $post->post_type == 'wpbtpls_template' ) {
 		$data['categories'] = get_terms( 'category', array(
 		'hide_empty' => false

@@ -1,20 +1,55 @@
-/*SUb A*/
-.a-class{
- border: 1px;
- .a-sub-class{
- 	border: 1px;
- }
- .b-sub-class{
- 	border: 1px;
+/* General Loop Layout */
+.wpbtpls_loop{
+	position: relative;
+	overflow: hidden;
+ .wpbtpls-item-featured{
+ 	img{
+ 		width: 100%;
+ 		height: auto;
+ 	}
+ } 
+ .wpbtpls-item-content{
+ 	& > h4.title{
+ 		font-size: 1.12em;
+ 		line-height: normal;
+ 		display: block;
+		margin-top: 1.33em;
+		margin-bottom: 1.33em;
+		margin-left: 0;
+		margin-right: 0;
+		font-weight: bold;
+ 	}
+ 	p{
+		display: block;
+		margin-top: 0;
+		margin-bottom: 1em;
+		margin-left: 0;
+		margin-right: 0;
+		font-size: 16px;
+    line-height: 1.6em;
+ 	}
  }
 }
 
-
-/*SUb B*/
-.b-class{
-	border: 1px;
-}
-.c-class{
-	border: 1px;
-
+/* Layout Standart 1 */
+.wpbtpls_loop.layout-standart1{
+	.wpbtpls-item{
+		&:after{
+			content: "";
+			clear: both;
+			display: table;
+		}
+	}
+	.wpbtpls-item-featured{
+		width: 25%;
+		float: left;
+	}
+	.wpbtpls-item-content{
+		width: 75%;
+		float: left;
+		padding: 0 15px 15px 15px;
+ 		& > h4.title{
+ 			margin-top: 0;
+ 		}
+	}
 }

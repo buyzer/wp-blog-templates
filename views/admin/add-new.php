@@ -23,7 +23,8 @@
 						<ul>
 							<li><a href="#tabs-1"><?php _e( 'Build Query', 'wpbtpls' ); ?></a></li>
 							<li><a href="#tabs-2"><?php _e( 'Build Template', 'wpbtpls' ); ?></a></li>
-							<li><a href="#tabs-3"><?php _e( 'Advanced', 'wpbtpls' ); ?></a></li>
+							<li><a href="#tabs-3"><?php _e( 'Content', 'wpbtpls' ); ?></a></li>
+							<li><a href="#tabs-4"><?php _e( 'Advanced', 'wpbtpls' ); ?></a></li>
 						</ul>
 						<div id="tabs-1">
 							<table class="form-table">
@@ -122,6 +123,64 @@
 							</table>
 						</div>
 						<div id="tabs-3">
+							<table class="form-table">
+								<tr>
+									<th><?php _e( 'Featuted Image Size', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="text" name="image_size" value="thumbnail">
+										<p class="description">
+											<?php _e( 'Image size for Featured Image (thumbnail, medium, large, etc)' ); ?>
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Show Date ?', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="checkbox" name="show_date" value="1" checked>
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Show Date ?', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="text" name="date_format" value="F j, Y">
+										<p class="description">
+											<?php
+												echo sprintf( '%s : <a href="%s" target="_blank">%s</a>', 
+													__( 'Date format sample', 'wpbtpls' ),
+													'http://php.net/manual/en/function.date.php',
+													__( 'Click Me', 'wpbtpls' )
+												);
+											?>
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Show Excerpt ?', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="checkbox" name="show_excerpt" value="1" checked>
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Excerpt Length', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="text" name="excerpt_length" value="55">
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'Show ReadMore Button ?', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="checkbox" name="show_readmore" value="1" checked>
+									</td>
+								</tr>
+								<tr>
+									<th><?php _e( 'ReadMore Text', 'wpbtpls' ); ?></th>
+									<td>
+										<input type="text" name="readmore_text" value="Read More...">
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div id="tabs-4">
 							<table class="form-table">
 								<tr>
 									<th><?php _e( 'Wrapper Class', 'wpbtpls' ); ?></th>

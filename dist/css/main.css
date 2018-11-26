@@ -1,21 +1,53 @@
-/*SUb A*/
-.a-class {
-  border: 1px;
+/* General Loop Layout */
+.wpbtpls_loop {
+  position: relative;
+  overflow: hidden;
 }
 
-.a-class .a-sub-class {
-  border: 1px;
+.wpbtpls_loop .wpbtpls-item-featured img {
+  width: 100%;
+  height: auto;
 }
 
-.a-class .b-sub-class {
-  border: 1px;
+.wpbtpls_loop .wpbtpls-item-content > h4.title {
+  font-size: 1.12em;
+  line-height: normal;
+  display: block;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
 
-/*SUb B*/
-.b-class {
-  border: 1px;
+.wpbtpls_loop .wpbtpls-item-content p {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 16px;
+  line-height: 1.6em;
 }
 
-.c-class {
-  border: 1px;
+/* Layout Standart 1 */
+.wpbtpls_loop.layout-standart1 .wpbtpls-item:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.wpbtpls_loop.layout-standart1 .wpbtpls-item-featured {
+  width: 25%;
+  float: left;
+}
+
+.wpbtpls_loop.layout-standart1 .wpbtpls-item-content {
+  width: 75%;
+  float: left;
+  padding: 0 15px 15px 15px;
+}
+
+.wpbtpls_loop.layout-standart1 .wpbtpls-item-content > h4.title {
+  margin-top: 0;
 }

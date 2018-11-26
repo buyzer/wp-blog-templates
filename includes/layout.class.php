@@ -19,18 +19,15 @@ class WPBTPLS_Layout
 		$layouts = array (
 			'standart1' => array (
 				'title' => _x( 'Standart 1', 'WP Blog Templates Layout Name', 'wpbtpls'),
-				'thumbnail' => WPBTPLS_PLUGIN_URL . 'dist/admin/images/layout/standart1.svg',
-				'supports' => array ( 'title' ,'thumbnail', 'excerpt', 'author', 'date', 'label' )
+				'thumbnail' => WPBTPLS_PLUGIN_URL . 'dist/admin/images/layout/standart1.svg'
 			),
 			'standart2' => array (
 				'title' => _x( 'Standart 2', 'WP Blog Templates Layout Name', 'wpbtpls'),
-				'thumbnail' => WPBTPLS_PLUGIN_URL . 'dist/admin/images/layout/standart2.svg',
-				'supports' => array ( 'title' ,'thumbnail', 'excerpt', 'author', 'date', 'label' )
+				'thumbnail' => WPBTPLS_PLUGIN_URL . 'dist/admin/images/layout/standart2.svg'
 			),
 			'standart3' => array (
 				'title' => _x( 'Standart 3', 'WP Blog Templates Layout Name', 'wpbtpls'),
-				'thumbnail' => WPBTPLS_PLUGIN_URL . 'dist/admin/images/layout/standart3.svg',
-				'supports' => array ( 'title' ,'thumbnail', 'excerpt', 'author', 'date', 'label' )
+				'thumbnail' => WPBTPLS_PLUGIN_URL . 'dist/admin/images/layout/standart3.svg'
 			),
 		);
 		return $layouts;
@@ -47,6 +44,13 @@ class WPBTPLS_Layout
 			'navigation' => '',
 			'items_on_load' => '',
 			'layout' => '',
+			'image_size' => 'thumbnail',
+			'show_date' => '1',
+			'date_format' => 'F j, Y',
+			'show_excerpt' => '1',
+			'excerpt_length' => '55',
+			'show_readmore' => '1',
+			'readmore_text' => 'Read More...',
 			'wrapper_class' => '',
 			'wrapper_id' => '',
 			'item_class' => ''

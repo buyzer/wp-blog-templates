@@ -15,16 +15,44 @@ function wpbtpls_install(){
 
 // Get View
 function wpbtpls_get_view($file, $data = []){
-	if($data != null){
+	if ( $data != null ) {
 		extract($data);
 	}
-	include_once( WPBTPLS_PLUGIN_DIRECTORY.'views/' . $file );
+
+	if ( file_exists( WPBTPLS_PLUGIN_DIRECTORY.'views/' . $file ) ) {
+		include( WPBTPLS_PLUGIN_DIRECTORY.'views/' . $file );
+	}
 }
 
 // Check current action
 function wpbtpls_action_is( $action_name ){
-	if(! isset($_REQUEST['action'])){
+	if( !isset($_REQUEST['action']) ) {
 		return false;
 	}
 	return $_REQUEST['action'] == $action_name ? true : false;
 }
+
+// Custom excerpt
+function wpbtpls_excerpt( $length = 55 ){
+	if( has_excerpt() )
+		$excerpt = get_the_excerpt();
+	else
+		$excerpt = strip_tags( get_the_content() );
+
+	$excerpt = strip_shortcodes( $excerpt );
+	echo wpautop( wp_trim_words( $excerpt, $length ) );
+}
+
+// Custom read-more link
+function wpbtpls_readmore( $readmore ){
+	echo sprintf( '<a href="%s" class="wpbtpls-readmore">%s</a>',
+		get_permalink(),
+		$readmore
+	);
+}
+
+// Remove read more link
+function wpbtpls_content_more_link( $more ) {
+  return '';
+}
+add_filter( 'excerpt_more', 'wpbtpls_content_more_link', 11 );
