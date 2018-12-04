@@ -1,6 +1,6 @@
 <?php
 // Add custom capabilities
-function wpbtpls_capabilities(){
+function wpbtpls_capabilities() {
 	$roles = array( 'administrator', 'editor' );
 	foreach ( $roles as $role ) {
 		$wp_role = get_role( $role );

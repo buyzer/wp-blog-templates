@@ -1,11 +1,11 @@
 <?php
 
-function wpbtpls_init(){
+function wpbtpls_init() {
 
 }
 add_action('plugins_loaded', 'wpbtpls_init');
 
-function wpbtpls_install(){
+function wpbtpls_install() {
 	// Trigger functions that register custom post type
 	wpbtpls_register_post_type();
 
@@ -14,7 +14,7 @@ function wpbtpls_install(){
 }	
 
 // Get View
-function wpbtpls_get_view($file, $data = []){
+function wpbtpls_get_view($file, $data = []) {
 	if ( $data != null ) {
 		extract($data);
 	}
@@ -25,7 +25,7 @@ function wpbtpls_get_view($file, $data = []){
 }
 
 // Check current action
-function wpbtpls_action_is( $action_name ){
+function wpbtpls_action_is( $action_name ) {
 	if( !isset($_REQUEST['action']) ) {
 		return false;
 	}
@@ -33,7 +33,7 @@ function wpbtpls_action_is( $action_name ){
 }
 
 // Custom excerpt
-function wpbtpls_excerpt( $length = 55 ){
+function wpbtpls_excerpt( $length = 55 ) {
 	if( has_excerpt() )
 		$excerpt = get_the_excerpt();
 	else
@@ -44,7 +44,7 @@ function wpbtpls_excerpt( $length = 55 ){
 }
 
 // Custom read-more link
-function wpbtpls_readmore( $readmore ){
+function wpbtpls_readmore( $readmore ) {
 	echo sprintf( '<a href="%s" class="wpbtpls-readmore">%s</a>',
 		get_permalink(),
 		$readmore

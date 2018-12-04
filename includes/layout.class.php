@@ -4,16 +4,6 @@
  */
 class WPBTPLS_Layout
 {
-	
-	function __construct()
-	{
-	}
-
-	public function render()
-	{
-		
-	}
-
 	public static function layouts()
 	{
 		$layouts = array (

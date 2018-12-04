@@ -1,6 +1,6 @@
 <?php
 
-function wpbtpls_sc_wpbtpls( $atts ){
+function wpbtpls_sc_wpbtpls( $atts ) {
 	$atts = shortcode_atts( array(
 		'id' => 0
 	), $atts );

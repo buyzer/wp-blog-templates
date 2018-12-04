@@ -13,6 +13,11 @@ $attrs = array_merge( $default_attrs, (array)$blog_attrs );
 				the_post_thumbnail( $attrs['image_size'] );
 			} 
 		?>
+		<?php if( $attrs['show_date'] == '1' ) : ?>
+		<div class="date">
+			<em><?php the_date( $attrs['date_format'] ) ?></em>
+		</div>
+		<?php endif; ?>
 	</div>
 	<div class="wpbtpls-item-content">
 		<h4 class="title">
@@ -21,11 +26,6 @@ $attrs = array_merge( $default_attrs, (array)$blog_attrs );
 		<?php if( $attrs['show_excerpt'] == '1' ) : ?>
 		<div class="excerpt">
 			<?php wpbtpls_excerpt( $attrs['excerpt_length'] ) ?>
-		</div>
-		<?php endif; ?>
-		<?php if( $attrs['show_date'] == '1' ) : ?>
-		<div class="date">
-			<em><?php the_date( $attrs['date_format'] ) ?></em>
 		</div>
 		<?php endif; ?>
 		<?php if( $attrs['show_readmore'] == '1' ) : ?>

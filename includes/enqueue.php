@@ -7,6 +7,7 @@ function wpbtpls_enqueue_scripts() {
 	}
 	// Load css
 	wp_enqueue_style( 'wpbtpls-main', WPBTPLS_PLUGIN_URL.'dist/css/main'. $suffix .'.css', array(), WPBTPLS_VERSION );
+	wp_enqueue_style( 'wpbtpls-responsive', WPBTPLS_PLUGIN_URL.'dist/css/responsive'. $suffix .'.css', array(), WPBTPLS_VERSION );
 
 	// Load js
 	wp_enqueue_script( 'wpbtpls-main-js', WPBTPLS_PLUGIN_URL.'dist/js/main'. $suffix .'.js', array( 'jquery' ), WPBTPLS_VERSION, true );

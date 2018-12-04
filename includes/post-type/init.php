@@ -1,6 +1,6 @@
 <?php
 //registering custom post type
-function wpbtpls_register_post_type(){
+function wpbtpls_register_post_type() {
 	
 	//blog template CPT
 	$blog_template_cpt 	= 'wpbtpls_template';
@@ -32,4 +32,4 @@ function wpbtpls_register_post_type(){
 	);
 	register_post_type( $blog_template_cpt, $blog_template_args );
 }
-add_action('init', 'wpbtpls_register_post_type');
+add_action( 'init', 'wpbtpls_register_post_type' );

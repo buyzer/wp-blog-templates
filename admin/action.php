@@ -1,6 +1,6 @@
 <?php
 // Add template
-function wpbtpls_add_template(){
+function wpbtpls_add_template() {
 	// Check nonce
 	if ( !wp_verify_nonce( $_POST['_wpnonce'], 'wpbtpls-add-template' ) ) {
 		return false;
@@ -36,7 +36,7 @@ function wpbtpls_add_template(){
 		'post_type' => 'wpbtpls_template' ,
 		'post_status' => 'publish'
 	), true );
-	if ( is_wp_error($blog_template) ){
+	if ( is_wp_error( $blog_template ) ){
 		echo $blog_template->get_error_message();
 		die;
 	}
@@ -76,7 +76,7 @@ function wpbtpls_add_template(){
 }
 
 // Update template
-function wpbtpls_update_template(){
+function wpbtpls_update_template() {
 	// Check nonce
 	$post_id = (int)sanitize_text_field( $_POST['post_id'] );
 	if ( !wp_verify_nonce( $_POST['_wpnonce'], 'wpbtpls-update-template-'. $post_id ) ) {
@@ -152,7 +152,7 @@ function wpbtpls_update_template(){
 }
 
 // Delete Template
-function wpbtpls_delete_template(){
+function wpbtpls_delete_template() {
 	// Check nonce
 	if ( !wp_verify_nonce( $_GET['_wpnonce'], 'wpbtpls-delete-template' ) ) {
 		return false;
@@ -176,7 +176,7 @@ function wpbtpls_delete_template(){
 }
 
 // Bulk Delete Template
-function wpbtpls_bulk_delete_template(){
+function wpbtpls_bulk_delete_template() {
 	// Check nonce
 	if ( !wp_verify_nonce( $_GET['_wpnonce'], 'bulk-posts' ) ) {
 		return false;
@@ -187,7 +187,7 @@ function wpbtpls_bulk_delete_template(){
 		return false;
 	}
 
-	if( $_GET['post_checkbox'] != null ){
+	if( $_GET['post_checkbox'] != null ) {
 		foreach ( $_GET['post_checkbox'] as $post_id ) {
 			wp_delete_post( $post_id, true );
 		}
@@ -202,48 +202,48 @@ function wpbtpls_bulk_delete_template(){
 	}
 }
 
-function wpbtpls_action_init(){
+function wpbtpls_action_init() {
 	if ( !isset($_REQUEST['action']) ) {
 		return false;
 	}
 
-	if ( wpbtpls_action_is( 'add_template' ) ){
+	if ( wpbtpls_action_is( 'add_template' ) ) {
 		wpbtpls_add_template();
 	}
 
-	if ( wpbtpls_action_is( 'update_template' ) ){
+	if ( wpbtpls_action_is( 'update_template' ) ) {
 		wpbtpls_update_template();
 	}
 
-	if ( wpbtpls_action_is( 'delete_template' ) ){
+	if ( wpbtpls_action_is( 'delete_template' ) ) {
 		wpbtpls_delete_template();
 	}
 
-	if ( wpbtpls_action_is( 'bulk_delete_template' ) ){
+	if ( wpbtpls_action_is( 'bulk_delete_template' ) ) {
 		wpbtpls_bulk_delete_template();
 	}
 }
 add_action( 'init', 'wpbtpls_action_init' );
 
 // Set message after add / edit template
-function wpbtpls_action_messages(){
-	if ( ! isset($_REQUEST['message']) ) {
+function wpbtpls_action_messages() {
+	if ( ! isset( $_REQUEST['message'] ) ) {
 		return false;
 	}
 	$msg = '';
-	if ( $_REQUEST['message'] == 'saved' ){
+	if ( $_REQUEST['message'] == 'saved' ) {
 		$msg = '<div id="message" class="notice notice-success is-dismissible">';
 		$msg .= '<p>'. __( 'Blog Template saved.', 'wpbtpls' ) .'</p>';
 		$msg .= '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.__( 'Dismiss this notice.', 'wpbtpls' ).'</span></button>';
 		$msg .= '</div>';
 	}
-	if ( $_REQUEST['message'] == 'updated' ){
+	if ( $_REQUEST['message'] == 'updated' ) {
 		$msg = '<div id="message" class="notice notice-success is-dismissible">';
 		$msg .= '<p>'. __( 'Blog Template updated.', 'wpbtpls' ) .'</p>';
 		$msg .= '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.__( 'Dismiss this notice.', 'wpbtpls' ).'</span></button>';
 		$msg .= '</div>';
 	}
-	if ( $_REQUEST['message'] == 'deleted' ){
+	if ( $_REQUEST['message'] == 'deleted' ) {
 		$msg = '<div id="message" class="notice notice-success is-dismissible">';
 		$msg .= '<p>'. __( 'Blog Template deleted.', 'wpbtpls' ) .'</p>';
 		$msg .= '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.__( 'Dismiss this notice.', 'wpbtpls' ).'</span></button>';
@@ -251,4 +251,4 @@ function wpbtpls_action_messages(){
 	}
 	echo $msg;
 }
-add_action( 'wpbtpls_messages', 'wpbtpls_action_messages');
+add_action( 'wpbtpls_messages', 'wpbtpls_action_messages' );

@@ -46,7 +46,7 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 
 		$template_query = new WP_Query( $args );
 		$items = array();
-		foreach ($template_query->posts as $item) {
+		foreach ( $template_query->posts as $item ) {
 			$items[] = $item;
 		}
 		$this->items = $items;
@@ -79,7 +79,8 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 		return $columns;
 	}
 
-	public function get_columns() {
+	public function get_columns()
+	{
 		$c = array(
 			'cb' => '<input type="checkbox" />',
 			'title' => __( 'Title', 'wpbtpls' ),
@@ -89,7 +90,8 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 		return $c;
 	}
 
-	public function column_default( $item, $column_name ) {
+	public function column_default( $item, $column_name )
+	{
 		return '';
 	}
 
@@ -103,7 +105,7 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 		$delete_nonce = wp_create_nonce( 'wpbtpls-delete-template' );
 		$url = admin_url( 'admin.php?page=wpbtpls&post=' . absint( $item->ID ) );
 		$edit_link = add_query_arg( array( 'action' => 'edit' ), $url );
-		$delete_link = add_query_arg( array( 'action' => 'delete_template', '_wpnonce' => $delete_nonce  ), $url );
+		$delete_link = add_query_arg( array( 'action' => 'delete_template', '_wpnonce' => $delete_nonce ), $url );
 
 		$output = sprintf(
 			'<strong><a href="%s" title="%s" class="row-title">%s</a></strong>',

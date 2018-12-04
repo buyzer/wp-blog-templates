@@ -1,6 +1,6 @@
 <?php
 // Add admin menu
-function wpbtpls_admin_menus(){
+function wpbtpls_admin_menus() {
 	add_menu_page(
 		_x('WP Blog Templates', 'WP Blog Templates Menu', 'wpbtpls'),
 		_x('WPB Templates', 'WP Blog Templates Menu', 'wpbtpls'),
@@ -21,7 +21,7 @@ function wpbtpls_admin_menus(){
 add_action( 'admin_menu', 'wpbtpls_admin_menus' );
 
 // Render dashboard view
-function wpbtpls_dashboard_view(){
+function wpbtpls_dashboard_view() {
 	$post_id = isset($_GET['post']) ? (int)sanitize_text_field( $_GET['post'] ) : 0;
 	$post = get_post( $post_id );
 	// Render edit template view
@@ -42,7 +42,7 @@ function wpbtpls_dashboard_view(){
 }
 
 // Render add template view
-function wpbtpls_add_template_view(){
+function wpbtpls_add_template_view() {
 	$data['categories'] = get_terms( 'category', array(
 	'hide_empty' => false,
 	) );
