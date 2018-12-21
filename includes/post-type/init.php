@@ -22,7 +22,7 @@ function wpbtpls_register_post_type() {
 	);
 	$blog_template_args = array(
 		'labels'             => $blog_template_labels,
-		'public'             => true,
+		'public'             => false,
 		'query_var'          => false,
 		'capability_type'    => 'post',
 		'has_archive'        => false,

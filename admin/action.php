@@ -11,7 +11,7 @@ function wpbtpls_add_template() {
 		return false;
 	}
 
-	$title = sanitize_title( $_POST['title'] );  
+	$title = sanitize_text_field( $_POST['title'] );  
 	$category = (int)sanitize_text_field( $_POST['category'] );  
 	$post_tag = (int)sanitize_text_field( $_POST['post_tag'] );  
 	$posts_per_page = (int)sanitize_text_field( $_POST['posts_per_page'] );  
@@ -88,7 +88,7 @@ function wpbtpls_update_template() {
 		return false;
 	}
 
-	$title = sanitize_title( $_POST['title'] );  
+	$title = sanitize_text_field( $_POST['title'] );  
 	$category = (int)sanitize_text_field( $_POST['category'] );  
 	$post_tag = (int)sanitize_text_field( $_POST['post_tag'] );  
 	$posts_per_page = (int)sanitize_text_field( $_POST['posts_per_page'] );  
@@ -107,7 +107,6 @@ function wpbtpls_update_template() {
 	$wrapper_class = sanitize_text_field( $_POST['wrapper_class'] );  
 	$wrapper_id = sanitize_text_field( $_POST['wrapper_id'] );  
 	$item_class = sanitize_text_field( $_POST['item_class'] );  
-
 	$blog_template = wp_update_post( array(
 		'ID' => $post_id,
 		'post_title' => $title

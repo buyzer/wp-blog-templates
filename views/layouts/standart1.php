@@ -25,7 +25,7 @@ $attrs = array_merge( $default_attrs, (array)$blog_attrs );
 		<?php endif; ?>
 		<?php if( $attrs['show_date'] == '1' ) : ?>
 		<div class="date">
-			<em><?php the_date( $attrs['date_format'] ) ?></em>
+			<em><?php echo get_the_date( $attrs['date_format'] ); ?></em>
 		</div>
 		<?php endif; ?>
 		<?php if( $attrs['show_readmore'] == '1' ) : ?>
