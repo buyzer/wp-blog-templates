@@ -20,6 +20,10 @@
   margin-left: 0;
 }
 
+.wpbtpls_loop .wpbtpls-item-content .date {
+  font-size: 16px;
+}
+
 .wpbtpls_loop .wpbtpls-item-content p {
   display: block;
   margin-top: 0;
@@ -54,6 +58,7 @@
 
 .wpbtpls_loop.layout-standart1 .wpbtpls-item-content > h4.title {
   margin-top: 0;
+  margin-bottom: 15px;
 }
 
 /* Layout Standart 2 */
