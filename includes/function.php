@@ -56,3 +56,29 @@ function wpbtpls_content_more_link( $more ) {
   return '';
 }
 add_filter( 'excerpt_more', 'wpbtpls_content_more_link', 11 );
+
+// Custom Pagination
+function wpbtpls_pagination ( $navigation, $wp_query = null, $posts_per_page = 10 ) {
+	if ( $wp_query == null )
+		global $wp_query;
+
+	if ( $wp_query->found_posts <= $posts_per_page || $navigation == 'none' )
+		return false;
+
+	echo '<div class="wpbtpls-pagination">';
+	switch ( $navigation ) {
+		case 'pagination':
+				$big = 999999999; // need an unlikely integer
+				echo paginate_links( array(
+					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format' => '?paged=%#%',
+					'current' => max( 1, get_query_var('page') ),
+					'total' => $wp_query->max_num_pages
+				) );
+			break;
+		case 'loadmore':
+			# code...
+			break;
+	}
+	echo '</div>';
+}

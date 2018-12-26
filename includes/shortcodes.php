@@ -12,10 +12,10 @@ function wpbtpls_sc_wpbtpls( $atts ) {
 	$blog_attrs = get_post_meta( $post->ID, '_wpbtpls_attrs', true );
 	$default_attrs = WPBTPLS_Layout::default_attrs();
 	$blog_attrs = array_merge( $default_attrs, (array)$blog_attrs );
-	
+
 	$blog_args = array(
 		'post_type' => 'post',
-		'paged' => get_query_var( 'paged' ),
+		'paged' => get_query_var( 'page' ),
 		'posts_per_page' => $blog_attrs['posts_per_page'],
 		'orderby' => $blog_attrs['order_by'],
 		'order' => strtoupper( $blog_attrs['sort_order'] ),
@@ -42,16 +42,11 @@ function wpbtpls_sc_wpbtpls( $atts ) {
 			wpbtpls_get_view( 'layouts/' . $blog_attrs['layout'] . '.php', $item_data );
 		endwhile;
 
-		switch ( $blog_attrs['navigation'] ) {
-			case 'pagination':
-				# code...
-				break;
-			case 'loadmore':
-				# code...
-				break;
-		}
 	endif;
 	echo '</div>'; // End of .wpbtpls_loop
+	wp_reset_query();
+
+	wpbtpls_pagination ( $blog_attrs['navigation'], $blog_query, $blog_attrs['posts_per_page'] );
 	return ob_get_clean();
 }
 add_shortcode( 'wpbtpls', 'wpbtpls_sc_wpbtpls' );
