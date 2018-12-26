@@ -66,7 +66,9 @@
 		float: left;
 		margin: 0 5px;
 		margin-bottom: 15px;
+		padding-bottom: 30px;
 		border: 1px solid #f1f1f1;
+		position: relative; 
 	}
 	.wpbtpls-item-featured{
 		position: relative;
@@ -84,6 +86,12 @@
 		padding: 10px;
  		& > h4.title{
  			margin-top: 0;
+		}
+		.wpbtpls-readmore{
+			position: absolute;
+			bottom: 10px;
+			transform: translateX(-50%);
+			left: 50%;
 		}
 	}
 }

@@ -67,7 +67,9 @@
   float: left;
   margin: 0 5px;
   margin-bottom: 15px;
+  padding-bottom: 30px;
   border: 1px solid #f1f1f1;
+  position: relative;
 }
 
 .wpbtpls_loop.layout-standart2 .wpbtpls-item-featured {
@@ -90,6 +92,13 @@
 
 .wpbtpls_loop.layout-standart2 .wpbtpls-item-content > h4.title {
   margin-top: 0;
+}
+
+.wpbtpls_loop.layout-standart2 .wpbtpls-item-content .wpbtpls-readmore {
+  position: absolute;
+  bottom: 10px;
+  transform: translateX(-50%);
+  left: 50%;
 }
 
 /* Layout Standart 3 */
