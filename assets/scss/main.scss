@@ -152,3 +152,16 @@
 		}
 	}
 }
+
+/* Pagination */
+.wpbtpls-pagination{
+	margin-top: 30px;
+	text-align: center;
+	> a, > span{
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		padding: 5px 10px;
+		display: inline-block;
+		margin: 3px;
+	}
+}

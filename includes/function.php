@@ -73,6 +73,7 @@ function wpbtpls_pagination ( $navigation, $wp_query = null, $posts_per_page = 1
 					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 					'format' => '?paged=%#%',
 					'current' => max( 1, get_query_var('page') ),
+					'mid_size' => 1,
 					'total' => $wp_query->max_num_pages
 				) );
 			break;

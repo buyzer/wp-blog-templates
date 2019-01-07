@@ -101,7 +101,6 @@ $attrs = array_merge( $default_attrs, (array)$blog_template_attrs );
 										<select name="navigation">
 											<option value="none"><?php _e( 'None', 'wpbtpls' ); ?></option>
 											<option <?php echo $attrs['navigation'] == 'pagination' ? 'selected' : ''; ?> value="pagination"><?php _e( 'Pagination', 'wpbtpls' ); ?></option>
-											<option <?php echo $attrs['navigation'] == 'loadmore' ? 'selected' : ''; ?> value="loadmore"><?php _e( 'Load More', 'wpbtpls' ); ?></option>
 										</select>
 									</td>
 								</tr>

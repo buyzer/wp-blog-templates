@@ -162,3 +162,17 @@
 .wpbtpls_loop.layout-standart3 .wpbtpls-item-content .excerpt {
   display: none;
 }
+
+/* Pagination */
+.wpbtpls-pagination {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.wpbtpls-pagination > a, .wpbtpls-pagination > span {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px 10px;
+  display: inline-block;
+  margin: 3px;
+}

@@ -88,7 +88,6 @@
 										<select name="navigation">
 											<option value="none"><?php _e( 'None', 'wpbtpls' ); ?></option>
 											<option value="pagination"><?php _e( 'Pagination', 'wpbtpls' ); ?></option>
-											<option value="loadmore"><?php _e( 'Load More', 'wpbtpls' ); ?></option>
 										</select>
 									</td>
 								</tr>
