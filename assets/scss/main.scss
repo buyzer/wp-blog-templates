@@ -49,7 +49,7 @@
 		float: left;
 	}
 	.wpbtpls-item-content{
-		width: 70%;
+		width: calc(70% - 30px);
 		float: left;
 		padding: 0 15px 15px 15px;
  		& > h4.title{

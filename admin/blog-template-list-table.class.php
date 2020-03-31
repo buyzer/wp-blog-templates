@@ -28,7 +28,7 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 		$this->_column_headers = array($columns, $hidden, $sortable);
 
 		$search = isset( $_REQUEST['s'] ) ? wp_unslash( trim( $_REQUEST['s'] ) ) : '';
-		$per_page = 1;
+		$per_page = 10;
 		$paged = $this->get_pagenum();
 		$args = array(
 			'posts_per_page' => $per_page,
@@ -121,7 +121,7 @@ class WPBTPLS_Blog_Templates_Table extends WP_List_Table
 			),
 			'delete' => sprintf( '<a href="%s" onclick="return confirm(\'%s\')">%s</a>',
 				$delete_link,
-				__( 'This action will deleting Item permanently.', 'wpbtpls' ),
+				__( 'This action will delete the item permanently.', 'wpbtpls' ),
 				__( 'Delete', 'wpbtpls' )
 			)
 		];
