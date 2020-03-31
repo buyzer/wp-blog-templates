@@ -2,36 +2,40 @@
 .wpbtpls_loop{
 	overflow: hidden;
 	position: relative;
+	box-sizing: border-box;
+	*{
+		box-sizing: border-box;
+	}
  .wpbtpls-item-featured{
- 	img{
- 		height: auto;
- 		width: 100%;
- 	}
- } 
- .wpbtpls-item-content{
- 	& > h4.title{
- 		display: block;
- 		font-size: 1.12em;
-		font-weight: bold;
- 		line-height: normal;
-		margin-top: 1.33em;
-		margin-right: 0;
-		margin-bottom: 1.33em;
-		margin-left: 0;
- 	}
- 	.date{
- 		font-size: 16px;
- 	}
- 	p{
-		display: block;
-		margin-top: 0;
-		margin-bottom: 1em;
-		margin-left: 0;
-		margin-right: 0;
-		font-size: 16px;
-    line-height: 1.6em;
- 	}
- }
+		img{
+			height: auto;
+			width: 100%;
+		}
+	} 
+	.wpbtpls-item-content{
+		& > h4.title{
+			display: block;
+			font-size: 1.12em;
+			font-weight: bold;
+			line-height: normal;
+			margin-top: 1.33em;
+			margin-right: 0;
+			margin-bottom: 1.33em;
+			margin-left: 0;
+		}
+		.date{
+			font-size: 16px;
+		}
+		p{
+			display: block;
+			margin-top: 0;
+			margin-bottom: 1em;
+			margin-left: 0;
+			margin-right: 0;
+			font-size: 16px;
+			line-height: 1.6em;
+		}
+	}
 }
 
 /* Layout Standart 1 */
@@ -49,7 +53,7 @@
 		float: left;
 	}
 	.wpbtpls-item-content{
-		width: calc(70% - 30px);
+		width: 70%;
 		float: left;
 		padding: 0 15px 15px 15px;
  		& > h4.title{

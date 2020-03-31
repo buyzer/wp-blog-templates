@@ -2,6 +2,11 @@
 .wpbtpls_loop {
   overflow: hidden;
   position: relative;
+  box-sizing: border-box;
+}
+
+.wpbtpls_loop * {
+  box-sizing: border-box;
 }
 
 .wpbtpls_loop .wpbtpls-item-featured img {
@@ -51,7 +56,7 @@
 }
 
 .wpbtpls_loop.layout-standart1 .wpbtpls-item-content {
-  width: calc(70% - 30px);
+  width: 70%;
   float: left;
   padding: 0 15px 15px 15px;
 }
