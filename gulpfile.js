@@ -6,11 +6,14 @@ var gulp = require( 'gulp' ),
 	sass     = require('gulp-sass'),
 	flatten  = require('gulp-flatten'),
 	runSequence  = require('run-sequence'),
-	cleanCSS = require('gulp-clean-css')
+	cleanCSS = require('gulp-clean-css'),
+	zip = require('gulp-zip'),
 	prettify = require('gulp-jsbeautifier');
 
+var pluginPathName = 'wp-blog-templates';
 var assetsPath = './assets';
 var distBasePath = './dist';
+var releaseBasePath = './release';
 var distPath = {
 	js : distBasePath + '/js',
 	css : distBasePath + '/css',
@@ -222,7 +225,32 @@ gulp.task('vendor', function(){
 		.pipe(gulp.dest( distPath.vendor ));
 });
 
-gulp.task('clean', require('del').bind(null, [distBasePath]));
+// clean the plugin files
+gulp.task( 'pre-zip', function() {
+	var files = [
+		'!./package.json',
+		'!./package-lock.json',
+		'!./gulpfile.js',
+		'!./assets{,/**}',
+		'!./node_modules{,/**}',
+		'!' + releaseBasePath + '{,/**}',
+		'./**',
+	]; 
+
+	return gulp.src( files, { dot: false } ) // dot : false, ignore the hidden files 
+		.pipe(gulp.dest( releaseBasePath + '/' + pluginPathName ));
+
+} );
+
+// clean the plugin files
+gulp.task( 'zip', function() {
+	return gulp.src( releaseBasePath + '/' + pluginPathName + '{,/**}')
+		.pipe(zip( pluginPathName+'.zip' ))
+		.pipe(gulp.dest( releaseBasePath ))
+
+} );
+
+gulp.task('clean', require('del').bind(null, [distBasePath,releaseBasePath]));
 
 gulp.task('build', function(callback) {
 	runSequence(
@@ -266,4 +294,15 @@ gulp.task( 'watch', function() {
 gulp.task('default', ['clean'], function() {
 	gulp.start('build');
 	gulp.start('watch');
+});
+
+gulp.task('release', function( callback ) {
+	runSequence(
+		'clean',
+		'build',
+		'pre-zip',
+		'zip',
+		callback
+	);
+	
 });
