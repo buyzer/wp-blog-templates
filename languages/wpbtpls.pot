@@ -1,0 +1,271 @@
+# Copyright (C) 2020 wpbtpls
+# This file is distributed under the same license as the wpbtpls package.
+msgid ""
+msgstr ""
+"Project-Id-Version: wpbtpls\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin/blog-template-list-table.class.php:67, admin/blog-template-list-table.class.php:125, views/admin/edit.php:225
+msgid "Delete"
+msgstr ""
+
+#: admin/blog-template-list-table.class.php:86, views/admin/add-new.php:69, views/admin/edit.php:82
+msgid "Title"
+msgstr ""
+
+#: admin/blog-template-list-table.class.php:113, admin/blog-template-list-table.class.php:120
+msgid "Edit"
+msgstr ""
+
+#: admin/blog-template-list-table.class.php:124
+msgid "This action will delete the item permanently."
+msgstr ""
+
+#: admin/page.php:5
+msgctxt "WP Blog Templates Menu"
+msgid "WP Blog Templates"
+msgstr ""
+
+#: admin/page.php:6
+msgctxt "WP Blog Templates Menu"
+msgid "WPB Templates"
+msgstr ""
+
+#: admin/page.php:14, admin/page.php:15
+msgid "Add Blog Template"
+msgstr ""
+
+#: includes/layout.class.php:11
+msgctxt "WP Blog Templates Layout Name"
+msgid "Standart 1"
+msgstr ""
+
+#: includes/layout.class.php:15
+msgctxt "WP Blog Templates Layout Name"
+msgid "Standart 2"
+msgstr ""
+
+#: includes/layout.class.php:19
+msgctxt "WP Blog Templates Layout Name"
+msgid "Standart 3"
+msgstr ""
+
+#: includes/post-type/init.php:8
+msgctxt "Post type general name"
+msgid "Blog Templates"
+msgstr ""
+
+#: includes/post-type/init.php:9
+msgctxt "Post type singular name"
+msgid "Blog Template"
+msgstr ""
+
+#: includes/post-type/init.php:10
+msgctxt "Admin Menu text"
+msgid "Blog Templates"
+msgstr ""
+
+#: includes/post-type/init.php:11
+msgctxt "Add New on Toolbar"
+msgid "Blog Template"
+msgstr ""
+
+#: includes/post-type/init.php:12, views/admin/dashboard.php:9, views/admin/edit.php:15
+msgid "Add New"
+msgstr ""
+
+#: includes/post-type/init.php:13, views/admin/add-new.php:9
+msgid "Add New Blog Template"
+msgstr ""
+
+#: includes/post-type/init.php:14
+msgid "New Blog Template"
+msgstr ""
+
+#: includes/post-type/init.php:15, views/admin/edit.php:14
+msgid "Edit Blog Template"
+msgstr ""
+
+#: includes/post-type/init.php:16
+msgid "View Blog Template"
+msgstr ""
+
+#: includes/post-type/init.php:17
+msgid "All Blog Templates"
+msgstr ""
+
+#: includes/post-type/init.php:18
+msgid "Search Blog Templates"
+msgstr ""
+
+#: includes/post-type/init.php:19
+msgid "Parent Blog Templates:"
+msgstr ""
+
+#: includes/post-type/init.php:20
+msgid "No Blog Templates found."
+msgstr ""
+
+#: includes/post-type/init.php:21
+msgid "No Blog Templates found in Trash."
+msgstr ""
+
+#: views/admin/add-new.php:19, views/admin/edit.php:26
+msgid "Enter template title"
+msgstr ""
+
+#: views/admin/add-new.php:24, views/admin/edit.php:35
+msgid "Build Query"
+msgstr ""
+
+#: views/admin/add-new.php:25, views/admin/edit.php:36
+msgid "Build Template"
+msgstr ""
+
+#: views/admin/add-new.php:26, views/admin/edit.php:37
+msgid "Content"
+msgstr ""
+
+#: views/admin/add-new.php:27, views/admin/edit.php:38
+msgid "Advanced"
+msgstr ""
+
+#: views/admin/add-new.php:32, views/admin/edit.php:43
+msgid "Specific Post Category"
+msgstr ""
+
+#: views/admin/add-new.php:35, views/admin/add-new.php:48, views/admin/add-new.php:67, views/admin/add-new.php:79, views/admin/add-new.php:89, views/admin/edit.php:46, views/admin/edit.php:60, views/admin/edit.php:80, views/admin/edit.php:92, views/admin/edit.php:102
+msgid "None"
+msgstr ""
+
+#: views/admin/add-new.php:45, views/admin/edit.php:57
+msgid "Specific Post Tag"
+msgstr ""
+
+#: views/admin/add-new.php:58, views/admin/edit.php:71
+msgid "Posts per Page"
+msgstr ""
+
+#: views/admin/add-new.php:64, views/admin/edit.php:77
+msgid "Order By"
+msgstr ""
+
+#: views/admin/add-new.php:68, views/admin/edit.php:81
+msgid "Date"
+msgstr ""
+
+#: views/admin/add-new.php:70, views/admin/edit.php:83
+msgid "Random"
+msgstr ""
+
+#: views/admin/add-new.php:71, views/admin/edit.php:84
+msgid "Menu Order"
+msgstr ""
+
+#: views/admin/add-new.php:76, views/admin/edit.php:89
+msgid "Sort Order"
+msgstr ""
+
+#: views/admin/add-new.php:80, views/admin/edit.php:93
+msgid "Descending"
+msgstr ""
+
+#: views/admin/add-new.php:81, views/admin/edit.php:94
+msgid "Ascending"
+msgstr ""
+
+#: views/admin/add-new.php:86, views/admin/edit.php:99
+msgid "Navigation"
+msgstr ""
+
+#: views/admin/add-new.php:90, views/admin/edit.php:103
+msgid "Pagination"
+msgstr ""
+
+#: views/admin/add-new.php:95, views/admin/edit.php:108
+msgid "Items on Load"
+msgstr ""
+
+#: views/admin/add-new.php:105, views/admin/edit.php:118
+msgid "Layout"
+msgstr ""
+
+#: views/admin/add-new.php:127, views/admin/edit.php:140
+msgid "Featuted Image Size"
+msgstr ""
+
+#: views/admin/add-new.php:136, views/admin/add-new.php:142, views/admin/edit.php:149, views/admin/edit.php:155
+msgid "Show Date ?"
+msgstr ""
+
+#: views/admin/add-new.php:148, views/admin/edit.php:161
+msgid "Date format sample"
+msgstr ""
+
+#: views/admin/add-new.php:150, views/admin/edit.php:163
+msgid "Click Me"
+msgstr ""
+
+#: views/admin/add-new.php:157, views/admin/edit.php:170
+msgid "Show Excerpt ?"
+msgstr ""
+
+#: views/admin/add-new.php:163, views/admin/edit.php:176
+msgid "Excerpt Length"
+msgstr ""
+
+#: views/admin/add-new.php:169, views/admin/edit.php:182
+msgid "Show ReadMore Button ?"
+msgstr ""
+
+#: views/admin/add-new.php:175, views/admin/edit.php:188
+msgid "ReadMore Text"
+msgstr ""
+
+#: views/admin/add-new.php:185, views/admin/edit.php:198
+msgid "Wrapper Class"
+msgstr ""
+
+#: views/admin/add-new.php:191, views/admin/edit.php:204
+msgid "Wrapper ID"
+msgstr ""
+
+#: views/admin/add-new.php:197, views/admin/edit.php:210
+msgid "Item Class"
+msgstr ""
+
+#: views/admin/add-new.php:208, views/admin/edit.php:221
+msgid "Action"
+msgstr ""
+
+#: views/admin/add-new.php:213
+msgid "Save"
+msgstr ""
+
+#: views/admin/dashboard.php:8
+msgid "Blog Templates"
+msgstr ""
+
+#: views/admin/dashboard.php:16
+msgid "Search"
+msgstr ""
+
+#: views/admin/edit.php:29
+msgid "Copy & Paste this shortcode to your Page / Post"
+msgstr ""
+
+#: views/admin/edit.php:225
+msgid "This action will deleting Item permanently."
+msgstr ""
+
+#: views/admin/edit.php:229
+msgid "Update"
+msgstr ""

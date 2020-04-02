@@ -8,12 +8,16 @@ var gulp = require( 'gulp' ),
 	runSequence  = require('run-sequence'),
 	cleanCSS = require('gulp-clean-css'),
 	zip = require('gulp-zip'),
+	wpPot = require('gulp-wp-pot'),
+	potToPO = require('gulp-pottopo'),
+	poToMo = require('gulp-potomo'),
 	prettify = require('gulp-jsbeautifier');
 
 var pluginPathName = 'wp-blog-templates';
 var assetsPath = './assets';
 var distBasePath = './dist';
-var releaseBasePath = './release';
+var releaseBasePath = './RELEASE';
+var langBasePath = './languages';
 var distPath = {
 	js : distBasePath + '/js',
 	css : distBasePath + '/css',
@@ -218,11 +222,45 @@ gulp.task('admin.img', function(){
 		.pipe(gulp.dest( adminDistPath.img ) ) ;
 });
 
-
 // vendor
 gulp.task('vendor', function(){
 	return gulp.src( vendorFiles )
 		.pipe(gulp.dest( distPath.vendor ));
+});
+
+// generate pot file
+gulp.task('pot', function(){
+	return gulp.src('./**/*.php')
+        .pipe(wpPot({
+            domain: 'wpbtpls'
+        }))
+        .pipe(gulp.dest(langBasePath + '/wpbtpls.pot'));
+});
+
+// generete po file
+gulp.task('pot-to-po', function () {
+    return gulp.src( langBasePath + '/*.pot')
+        .pipe(potToPO({
+			language : 'en_US'
+        }))
+        .pipe(gulp.dest(langBasePath));
+});
+
+// generete mo file
+gulp.task('po-to-mo', function () {
+    return gulp.src( langBasePath + '/*.po')
+        .pipe(poToMo())
+        .pipe(gulp.dest(langBasePath));
+});
+
+// translate plugin
+gulp.task('translate', function( callback ) {
+	runSequence(
+		'pot',
+		'pot-to-po',
+		'po-to-mo',
+		callback
+	);
 });
 
 // clean the plugin files
@@ -250,7 +288,7 @@ gulp.task( 'zip', function() {
 
 } );
 
-gulp.task('clean', require('del').bind(null, [distBasePath,releaseBasePath]));
+gulp.task('clean', require('del').bind(null, [distBasePath,releaseBasePath,langBasePath]));
 
 gulp.task('build', function(callback) {
 	runSequence(
@@ -271,7 +309,8 @@ gulp.task('build', function(callback) {
 								'admin.fonts',
 								'img',
 								'admin.img',
-								'vendor'
+								'vendor',
+								'translate'
 							],
 							callback);
 });

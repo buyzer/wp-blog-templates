@@ -1,7 +1,8 @@
 <?php
 
 function wpbtpls_init() {
-
+	// load translation files
+    load_plugin_textdomain( 'wpbtpls', false, plugin_basename( WPBTPLS_PLUGIN_DIRECTORY )  . '/languages' );
 }
 add_action('plugins_loaded', 'wpbtpls_init');
 
