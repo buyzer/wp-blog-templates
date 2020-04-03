@@ -3,7 +3,7 @@
 Plugin Name:  WP Blog Templates
 Plugin URI:   
 Description:  Easily build beautiful layout for News / Blog / Post.
-Version:      0.0.1
+Version:      0.1.0
 Author:       Buyung Abadi
 Author URI:   https://profiles.wordpress.org/buyzer
 License:      GPL2
@@ -16,7 +16,7 @@ if( ! defined('ABSPATH') ) {
 }
 
 //Set the version of this plugin
-define( 'WPBTPLS_VERSION', '0.0.1' );
+define( 'WPBTPLS_VERSION', '0.1.0' );
 
 //Set the plugin url
 define( 'WPBTPLS_PLUGIN_URL', plugins_url( '/', __FILE__ ) );
